@@ -1,2 +1,1 @@
-# project1-quote-generator
- 1st PHP tech degree project
+# 1st PHP tech degree project: a quote generator 
