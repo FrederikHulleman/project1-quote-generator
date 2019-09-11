@@ -1,3 +1,16 @@
+<?php
+
+$quotes = array (
+    "quote"  => "There is only one ball, so you need to have it.",
+    "source" => "Johan Cruyff",
+    "citation" => "Pastemagazine",
+    "year"   => "2015"
+);
+
+echo var_dump($quotes);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
