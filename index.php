@@ -1,13 +1,8 @@
 <?php
 
-$quotes = array (
-    "quote"  => "There is only one ball, so you need to have it.",
-    "source" => "Johan Cruyff",
-    "citation" => "Pastemagazine",
-    "year"   => "2015"
-);
+include 'inc/array.php';
 
-echo var_dump($quotes);
+echo print_r($quotes) . " <br> size: " . count($quotes);
 
 ?>
 
