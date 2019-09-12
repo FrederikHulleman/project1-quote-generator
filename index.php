@@ -1,8 +1,18 @@
 <?php
 
 include 'inc/array.php';
+include 'inc/functions.php';
 
-echo print_r($quotes) . " <br> size: " . count($quotes);
+//echo var_dump(array_keys($quotes)) . " <br> size: " . count(array_keys($quotes)) . "<br>";
+
+$selectedKey = getRandomQuote($quotes);
+
+if ($selectedKey != -1) {
+  print_r($quotes[$selectedKey]["quote"]);
+}
+else {
+  echo "failure";
+}
 
 ?>
 
