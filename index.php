@@ -5,33 +5,34 @@ include 'inc/functions.php';
 
 //echo var_dump(array_keys($quotes)) . " <br> size: " . count(array_keys($quotes)) . "<br>";
 
-$selectedKey = getRandomQuote($quotes);
+$quoteString = printQuote($quotes);
 
-if ($selectedKey != -1) {
-  print_r($quotes[$selectedKey]["quote"]);
+if (!$quoteString || !isset($quoteString)) {
+  echo "Failure; no valid quote could be selected and/or displayed";
 }
 else {
-  echo "failure";
-}
+
+
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Random Quotes</title>
-  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <div class="container">
-    <div id="quote-box">
-      <p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
-      <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Quotes</title>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="quote-box">
+        <?php echo $quoteString; ?>
+      </div>
+      <button id="loadQuote" onclick="window.location.reload(true)" >Show another quote</button>
     </div>
-    <button id="loadQuote" onclick="window.location.reload(true)" >Show another quote</button>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
+
+<?php } ?>

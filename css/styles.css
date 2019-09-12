@@ -16,7 +16,8 @@ body {
 }
 
 .quote {
-  font-size: 4rem;
+  /* decreased font-size because of long quotes */
+  font-size: 2rem;
   font-weight: 400;
   line-height: 1.1;
   position: relative;
@@ -24,7 +25,8 @@ body {
 }
 
 .quote:before, .quote:after {
-  font-size: 6rem;
+  /* decreased font-size because of long quotes */
+  font-size: 4rem;
   line-height: 2.5rem;
   position: absolute;
 }
