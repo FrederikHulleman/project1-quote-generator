@@ -1,12 +1,15 @@
 <?php
 
+//include arrray file which composes the quotes array
 include 'inc/array.php';
+
+// include the functions file with printQuote and getRandomQuote
 include 'inc/functions.php';
 
-//echo var_dump(array_keys($quotes)) . " <br> size: " . count(array_keys($quotes)) . "<br>";
-
+//create string based on outcome of printQuote function
 $quoteString = printQuote($quotes);
 
+//validate the outcome of printQuote
 if (!$quoteString || !isset($quoteString)) {
   echo "Failure; no valid quote could be selected and/or displayed";
 }
