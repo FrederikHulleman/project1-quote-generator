@@ -28,7 +28,7 @@ $quotes[] = [
     "quote"  => "You don't want the truth because deep down in places you don't talk about at parties, you want me on that wall. You need me on that wall. We use words like honor, code, loyalty. We use these words as the backbone of a life spent defending something.",
     "source" => "Jack Nicholson",
     "citation" => "A few good men",
-    "year"   => "1992"
+    "year"   => "1992",
     "category" => "Movie"
 ];
 
