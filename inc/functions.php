@@ -26,30 +26,30 @@ function printQuote ($quotes) {
     //call the getRandomQuote function with the full quotes array
 
     $selectedQuote = array();
-    $selectedQuote[] = getRandomQuote($quotes);
+    $selectedQuote = getRandomQuote($quotes);
 
     //validate whether the quote & source are set
-    if (isset($selectedQuote[0]["quote"]) && isset($selectedQuote[0]["source"])) {
+    if (isset($selectedQuote["quote"]) && isset($selectedQuote["source"])) {
 
       //create new string variable
       $htmlstring = "";
 
       //if category is set, add it as a title, with it's own styling class
-      if (isset($selectedQuote[0]["category"])) {
-          $htmlstring .= "<h1 class=\"category\">" . $selectedQuote[0]["category"] . " quote</h1>";
+      if (isset($selectedQuote["category"])) {
+          $htmlstring .= "<h1 class=\"category\">" . $selectedQuote["category"] . " quote</h1>";
       }
 
       //since quote and source are set, we can include them in the string
-      $htmlstring .= "<p class=\"quote\">" . $selectedQuote[0]["quote"] . "</p>"
-                      . "<p class=\"source\">" . $selectedQuote[0]["source"];
+      $htmlstring .= "<p class=\"quote\">" . $selectedQuote["quote"] . "</p>"
+                      . "<p class=\"source\">" . $selectedQuote["source"];
 
       //validate whether citation is set, if yes, include in string. no 'else' needed
-      if (isset($selectedQuote[0]["citation"])) {
-          $htmlstring .= "<span class=\"citation\">" . $selectedQuote[0]["citation"] . "</span>";
+      if (isset($selectedQuote["citation"])) {
+          $htmlstring .= "<span class=\"citation\">" . $selectedQuote["citation"] . "</span>";
       }
       //validate whether year is set, if yes, include in string. no 'else' needed
-      if (isset($selectedQuote[0]["year"])) {
-          $htmlstring .= "<span class=\"year\">" . $selectedQuote[0]["year"] . "</span>";
+      if (isset($selectedQuote["year"])) {
+          $htmlstring .= "<span class=\"year\">" . $selectedQuote["year"] . "</span>";
       }
 
       //paragraph end for 'quote footer'
@@ -95,13 +95,24 @@ function generateColors() {
 //function to choose the right contrast color (white or black) given a certain baseground color; in our case the background color
 //thanks to https://stackoverflow.com/questions/1331591/given-a-background-color-black-or-white-text to decide if the text color should be white or black
 function getContrastColor($hexcolor) {
+    //derive the R, G and B hex values from the full string
     $R = hexdec(substr($hexcolor, 1, 2));
     $G = hexdec(substr($hexcolor, 3, 2));
     $B = hexdec(substr($hexcolor, 5, 2));
+
     //convert RGB to YIQ
     //YIQ: https://en.wikipedia.org/wiki/YIQ
     $YIQ = (($R * 299) + ($G * 587) + ($B * 114)) / 1000;
-    //depending on the YIQ halfway point of 128, decide what the right contrast color should be: black orr white
-    return ($YIQ >= 128) ? 'black' : 'white';
+
+    //depending on the YIQ halfway point of 128, decide what the right contrast color should be: black or white
+
+    if ($YIQ >= 128) {
+      $textcolor = 'black';
+    }
+    else {
+      $textcolor = 'white';
+    }
+
+    return $textcolor;
 }
  ?>

@@ -1,6 +1,6 @@
 <?php
 
-//separate php file to create multidimensional array with quote properties
+//separate php file to create multidimensional array with quote properties, including quote 'category'
 
 $quotes = array();
 
