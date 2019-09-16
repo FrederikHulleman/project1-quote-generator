@@ -15,6 +15,19 @@ body {
   line-height: .5;
 }
 
+/* added new class to style category 'title' */
+.category {
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  padding: 15px 0;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
 .quote {
   /* decreased font-size because of long quotes */
   font-size: 2rem;

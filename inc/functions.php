@@ -32,6 +32,11 @@ function printQuote ($quotes) {
       //create new string variable
       $htmlstring = "";
 
+      //if category is set, add it as a title, with it's own styling class 
+      if (isset($selectedQuote[0]["category"])) {
+          $htmlstring .= "<h1 class=\"category\">" . $selectedQuote[0]["category"] . " quote</h1>";
+      }
+
       //since quote and source are set, we can include them in the string
       $htmlstring .= "<p class=\"quote\">" . $selectedQuote[0]["quote"] . "</p>"
                       . "<p class=\"source\">" . $selectedQuote[0]["source"];
