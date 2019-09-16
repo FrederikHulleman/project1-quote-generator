@@ -18,8 +18,6 @@ else {
   $colors = array();
   $colors = generateColors();
 
-  echo var_dump($colors);
-
   //validate outcome of generateColors
   if (!$colors || !isset($colors) || !is_array($colors)) {
     //choose default colors if something went wrong

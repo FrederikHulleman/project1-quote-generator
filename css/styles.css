@@ -100,13 +100,15 @@ body {
   border: 2px solid;
   /* colors should be inherited, because of the changing background & text colors */
   color: inherit;
-  background-color: inherit; 
+  background-color: inherit;
   padding: 15px 0;
   transition: .5s ;
 }
+
 #loadQuote:hover {
-  /* background-color: rgba(255,255,255,.25); */
-}
+
+  background-color: rgba(255,255,255,.25);
+} 
 
 #loadQuote:focus {
   outline: none;
