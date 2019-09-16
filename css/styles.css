@@ -99,8 +99,8 @@ body {
   /* removed border color, so it inherits the text color set in index.php */
   border: 2px solid;
   /* colors should be inherited, because of the changing background & text colors */
-  /* color: #fff; */
-  /* background-color: #36b55c; */
+  color: inherit;
+  background-color: inherit; 
   padding: 15px 0;
   transition: .5s ;
 }
