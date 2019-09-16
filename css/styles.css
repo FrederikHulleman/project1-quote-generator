@@ -27,7 +27,9 @@ body {
 .quote:before, .quote:after {
   /* decreased font-size because of long quotes */
   font-size: 4rem;
-  line-height: 2.5rem;
+  /* changed the line-height slightly, so the 'quote after' is not too close to the upper lines */
+  line-height: 2rem;
+  /* line-height: 2.5rem; */
   position: absolute;
 }
 

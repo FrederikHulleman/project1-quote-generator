@@ -2,55 +2,47 @@
 
 // Create the getRandomQuuote function and name it getRandomQuote
 
-function getRandomQuote ($keys) {
-  //validate whether $keys is or isn't an array
-  if (is_array($keys)) {
+function getRandomQuote ($quotes) {
+  //validate whether $quotes is or isn't an array
+  if (is_array($quotes)) {
 
-    //count the number keys
-    $arraySize = count($keys);
-
-    //randomly pick a key
-    $selectedKey = random_int(0,$arraySize-1);
-
-    //return the original key which is in the keys arrray on the position of 'selectKey'
-    return $keys[$selectedKey];
+    //return an associative array with the randomly selected quote
+    //feedback Jennifer Nordell: return array with selected quote, rather than only a random key
+    //hint Jennifer Nordell try in one line of code. but for now i'd like to keep the function robust, with the array type validation
+    return $quotes[random_int(0,count($quotes)-1)];
   }
-  //in case keys isn't an array
+  //in case quotes isn't an array
   else {
-    //return -1 in stead of 'false'. Because key 0 will also be evaluated as False
-    return -1;
+    return false;
   }
 
 }
-
 
 // Create the printQuote funtion and name it printQuote
 function printQuote ($quotes) {
   //validate whether $quotes is or isn't an array
   if (is_array($quotes)) {
-    //return all available keys in the array
-    $keys = array_keys($quotes);
 
-    //call the getRandomQuote function with only the keys, of which one should be chosen. This reduces the size of the array to be passed to getRandomQuote
-    $selectedKey = getRandomQuote($keys);
+    //call the getRandomQuote function with the full quotes array
+    $selectedQuote[] = getRandomQuote($quotes);
 
-    //validate the outcome of getRandomQuote and validate whether for this key the quote & source are set
-    if ($selectedKey != -1 && isset($quotes[$selectedKey]["quote"]) && isset($quotes[$selectedKey]["source"])) {
+    //validate whether the quote & source are set
+    if (isset($selectedQuote[0]["quote"]) && isset($selectedQuote[0]["source"])) {
 
       //create new string variable
       $htmlstring = "";
 
       //since quote and source are set, we can include them in the string
-      $htmlstring .= "<p class=\"quote\">" . $quotes[$selectedKey]["quote"] . "</p>"
-                      . "<p class=\"source\">" . $quotes[$selectedKey]["source"];
+      $htmlstring .= "<p class=\"quote\">" . $selectedQuote[0]["quote"] . "</p>"
+                      . "<p class=\"source\">" . $selectedQuote[0]["source"];
 
       //validate whether citation is set, if yes, include in string. no 'else' needed
-      if (isset($quotes[$selectedKey]["citation"])) {
-          $htmlstring .= "<span class=\"citation\">" . $quotes[$selectedKey]["citation"] . "</span>";
+      if (isset($selectedQuote[0]["citation"])) {
+          $htmlstring .= "<span class=\"citation\">" . $selectedQuote[0]["citation"] . "</span>";
       }
       //validate whether year is set, if yes, include in string. no 'else' needed
-      if (isset($quotes[$selectedKey]["year"])) {
-          $htmlstring .= "<span class=\"year\">" . $quotes[$selectedKey]["year"] . "</span>";
+      if (isset($selectedQuote[0]["year"])) {
+          $htmlstring .= "<span class=\"year\">" . $selectedQuote[0]["year"] . "</span>";
       }
 
       //paragraph end for 'quote footer'
@@ -59,7 +51,7 @@ function printQuote ($quotes) {
       //return the full string
       return $htmlstring;
     }
-    //if no key could be selected, or when quote or source weren't set
+    //when quote or source weren't set
     else {
       return false;
     }
