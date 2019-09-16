@@ -15,7 +15,8 @@ if (!$quoteString || !isset($quoteString)) {
 }
 else {
 
-
+$colors = array();
+$colors = generateColors();
 
 ?>
 
@@ -28,12 +29,14 @@ else {
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
-  <body>
+  <!-- to make sure the random colors are shown, the style attribute is added here to the body tag -->
+  <body style="background-color: <?php echo $colors["bgcolor"]; ?>; color: <?php echo $colors["textcolor"]; ?>;">
     <div class="container">
       <div id="quote-box">
         <?php echo $quoteString; ?>
       </div>
-      <button id="loadQuote" onclick="window.location.reload(true)" >Show another quote</button>
+      <!-- to make sure the random colors are shown in the button, the style attribute is added here to the button tag -->
+      <button style="background-color: <?php echo $colors["bgcolor"]; ?>; color: <?php echo $colors["textcolor"]; ?>;" id="loadQuote" onclick="window.location.reload(true)" >Show another quote</button>
     </div>
   </body>
   </html>
