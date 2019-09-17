@@ -14,14 +14,14 @@ $quotes[] = [
 
 $quotes[] = [
     "quote"  => "In the end it's not the years in your life that count; it's the life in your years.",
-    "source" => "Abram Lincoln",
-    "category" => "Whisdom"
+    "source" => "Abraham Lincoln",
+    "category" => "Wisdom"
 ];
 
 $quotes[] = [
     "quote"  => "Don't live the life others expect you to do. Do what makes you happy!",
     "source" => "Michel Schaeffer",
-    "category" => "Whisdom"
+    "category" => "Wisdom"
 ];
 
 $quotes[] = [
